@@ -1,0 +1,32 @@
+@baseUrl = http://localhost:8080
+# @baseUrl = https://8o7u4lxree.execute-api.us-east-1.amazonaws.com/dev
+
+### GET /api/profiles
+GET {{baseUrl}}/api/profiles/profile-1-42
+Content-Type: application/json
+
+### POST /api/profiles
+POST {{baseUrl}}/api/profiles
+Content-Type: application/json
+
+{
+    "email": "ealvarez@gmail.com",
+    "lastname": "AlvarezPacheco",
+    "firstname": "Esteban",
+    "curp": "AEPA980929HYNLCD12",
+    "rfc": "AAPA9809294F2",
+    "age": 18,
+    "phone_number": "9991549015",
+    "birthday": "1998-09-29",
+    "userId": "2"
+}
+
+### POST /api/employees
+POST {{baseUrl}}/api/employees
+Content-Type: application/json
+
+{
+    "companyId": "company-d3c6299e-d457-4194-8663-1f02942900ed",
+    "profileId": "profile-d3c6299e-d457-4194-8663-1f02942900ee"
+}
+
