@@ -10,14 +10,15 @@ const exist =
     secondConditionReqProperty = reqProperty,
     secondConditionColumn = secondConditionAttr,
     secondConditionValue = null,
-    nameForMessage = attribute,
+    subjectForMessage = attribute,
     required,
+    mapper = {},
   }) =>
   async (req, res, next) => {
     try {
       const value = req[reqProperty][attribute]
       if (!value && required)
-        throw new HttpError(400, `${nameForMessage} es requerido`, {
+        throw new HttpError(400, `${subjectForMessage} es requerido`, {
           field: [reqProperty, column],
           value,
         })
@@ -27,14 +28,15 @@ const exist =
         }
         if (secondConditionAttr)
           filters[secondConditionColumn] =
-            secondConditionValue || req[secondConditionReqProperty][secondConditionAttr]
+            secondConditionValue ||
+            req[secondConditionReqProperty][secondConditionAttr]
         const item = await Repository.query(filters)
         if (!item.Count) {
           throw new HttpError(
             400,
-            `El valor de ${nameForMessage} no ha sido registrado`,
+            `${subjectForMessage} no ha sido registrado`,
             {
-              field: [reqProperty, column],
+              field: [reqProperty, mapper[column]],
               value,
             }
           )

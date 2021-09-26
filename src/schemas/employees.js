@@ -14,6 +14,16 @@ const create = Joi.object({
   })
 })
 
+const getByCompany = Joi.object({
+  companyId: Joi.string().required().messages({
+    'string.base': 'El identificador de la empresa debe ser un texto',
+    'string.empty': 'El identificador de la empresa no debe ser un texto vacío vacía',
+    'any.required': 'El identificador de la empresa es un campo requerido',
+  })
+})
+
+
 module.exports = {
   create,
+  getByCompany
 }

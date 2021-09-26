@@ -10,14 +10,15 @@ const isUnique =
     secondConditionReqProperty = reqProperty,
     secondConditionColumn = secondConditionAttr,
     secondConditionValue = null,
-    nameForMessage = attribute,
+    subjectForMessage = attribute,
     required,
+    mapper = {}
   }) =>
   async (req, res, next) => {
     try {
       const value = req[reqProperty][attribute]
       if (!value && required)
-        throw new HttpError(400, `${nameForMessage} es requerido`, {
+        throw new HttpError(400, `${subjectForMessage} es requerido`, {
           field: [reqProperty, column],
           value,
         })
@@ -31,9 +32,9 @@ const isUnique =
             secondConditionValue || req[secondConditionReqProperty][secondConditionAttr]
         const item = await Repository.query(filters)
         if (item.Count) {
-          throw new HttpError(400, `${nameForMessage} ya ha sido registrado`, {
-            field: [reqProperty, column],
-            value,
+          throw new HttpError(400, `${subjectForMessage} ya ha sido registrado`, {
+            field: [reqProperty, mapper[attribute]],
+            value
           })
         }
       }

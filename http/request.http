@@ -30,3 +30,5 @@ Content-Type: application/json
     "profileId": "profile-d3c6299e-d457-4194-8663-1f02942900ee"
 }
 
+### GET /api/employees/:companyId
+GET {{baseUrl}}/api/employees/company-d3c6299e-d457-4194-8663-1f02942900ed

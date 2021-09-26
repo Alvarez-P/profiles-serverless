@@ -15,19 +15,28 @@ router.post(
     reqProperty: REQ_ATTR.BODY,
     attribute: 'sk',
     column: 'pk',
-    nameForMessage: 'perfil de usuario',
+    subjectForMessage: 'El perfil de usuario',
     secondConditionColumn: 'sk',
     secondConditionValue: HASH_KEYS.PROFILES,
     required: true,
+    mapper: EmployeeMapper
   }),
   isUnique({
     reqProperty: REQ_ATTR.BODY,
     attribute: 'sk',
-    nameForMessage: 'El empleado',
+    subjectForMessage: 'El empleado',
     secondConditionAttr: 'pk',
     required: false,
+    mapper: EmployeeMapper
   }),
   employeeControllers.create
+)
+
+router.get(
+  '/:companyId',
+  validate(employeeSchemas.getByCompany, REQ_ATTR.PARAMS),
+  transformer(EmployeeMapper, REQ_ATTR.PARAMS),
+  employeeControllers.getByCompany
 )
 
 module.exports = router

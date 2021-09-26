@@ -1,6 +1,6 @@
 const { INDICES_NAMES_MATCHER } = require("../constants")
 
-const buildExpressionAttrs = (filter) => {
+const buildExpressions = (filter) => {
   let KeyConditionExpression = '',
     UpdateExpression = 'set ',
     IndexName
@@ -16,7 +16,7 @@ const buildExpressionAttrs = (filter) => {
     if (
       typeof value === 'boolean' ||
       typeof value === 'number' ||
-      ['pk', 'sk', 'gsi1_pk', 'gsi2_pk', 'gsi3_pk'].includes(key)
+      ['pk', 'gsi1_pk', 'gsi2_pk', 'gsi3_pk'].includes(key)
     )
       KeyConditionExpression += `${attrName} = ${attrValue} AND `
     else KeyConditionExpression += `begins_with(${attrName}, ${attrValue}) AND `
@@ -32,4 +32,4 @@ const buildExpressionAttrs = (filter) => {
   }
 }
 
-module.exports = buildExpressionAttrs
+module.exports = buildExpressions

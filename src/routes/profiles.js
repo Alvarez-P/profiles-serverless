@@ -14,7 +14,7 @@ router.post(
   isUnique({
     reqProperty: REQ_ATTR.BODY,
     attribute: 'gsi1_pk',
-    nameForMessage: 'user id',
+    subjectForMessage: 'El usuario',
     secondConditionColumn: 'sk',
     secondConditionValue: HASH_KEYS.PROFILES,
     required: true,
@@ -22,7 +22,7 @@ router.post(
   isUnique({
     reqProperty: REQ_ATTR.BODY,
     attribute: 'gsi2_pk',
-    nameForMessage: 'email',
+    subjectForMessage: 'El email',
     secondConditionColumn: 'sk',
     secondConditionValue: HASH_KEYS.PROFILES,
     required: true,
@@ -30,7 +30,7 @@ router.post(
   isUnique({
     reqProperty: REQ_ATTR.BODY,
     attribute: 'gsi3_pk',
-    nameForMessage: 'curp',
+    subjectForMessage: 'El CURP',
     secondConditionColumn: 'sk',
     secondConditionValue: HASH_KEYS.PROFILES,
     required: false,

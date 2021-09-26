@@ -1,6 +1,6 @@
 const { docClient } = require('../config')
 const { TABLE_NAME } = require('../constants')
-const buildExpressionAttrs = require('./buildExpressionAttrs')
+const buildExpressions = require('./buildExpressions')
 
 const query = (filters) => {
   const {
@@ -8,7 +8,7 @@ const query = (filters) => {
     ExpressionAttributeNames,
     ExpressionAttributeValues,
     IndexName
-  } = buildExpressionAttrs(filters)
+  } = buildExpressions(filters)
   const params = {
     TableName: TABLE_NAME,
     IndexName,
