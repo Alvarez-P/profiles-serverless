@@ -4,7 +4,7 @@ const employeeControllers = require('../controllers/employees')
 const employeeSchemas = require('../schemas/employees')
 const { REQ_ATTR } = require('./constants')
 const { validate, exist, transformer, isUnique } = require('../middlewares')
-const { EmployeeMapper } = require('../middlewares/transformer/mappers')
+const { EmployeeMapper } = require('../db/mappers')
 const { HASH_KEYS } = require('../db/constants')
 
 router.post(

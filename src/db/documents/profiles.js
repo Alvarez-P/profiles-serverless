@@ -4,9 +4,9 @@ const BaseDocument = require('./base')
 
 class ProfileDocument extends BaseDocument {
   constructor(
-    gsi1_pk,
-    gsi2_pk,
-    gsi3_pk,
+    userId,
+    email,
+    curp,
     lastname,
     firstname,
     rfc,
@@ -17,9 +17,9 @@ class ProfileDocument extends BaseDocument {
     super(
       `${HASH_KEYS.PROFILES}-${uuidv4()}`,
       HASH_KEYS.PROFILES,
-      gsi1_pk,
-      gsi2_pk,
-      gsi3_pk
+      userId,
+      email,
+      curp
     )
     this.lastname = lastname
     this.firstname = firstname

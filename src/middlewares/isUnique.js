@@ -12,7 +12,7 @@ const isUnique =
     secondConditionValue = null,
     subjectForMessage = attribute,
     required,
-    mapper = {}
+    mapper
   }) =>
   async (req, res, next) => {
     try {

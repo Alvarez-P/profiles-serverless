@@ -27,7 +27,7 @@ Content-Type: application/json
 
 {
     "companyId": "company-d3c6299e-d457-4194-8663-1f02942900ed",
-    "profileId": "profile-d3c6299e-d457-4194-8663-1f02942900ee"
+    "profileId": "profile-d3c6299e-d457-4194-8663-1f02942900ef"
 }
 
 ### GET /api/employees/:companyId

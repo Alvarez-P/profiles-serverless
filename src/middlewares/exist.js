@@ -12,7 +12,7 @@ const exist =
     secondConditionValue = null,
     subjectForMessage = attribute,
     required,
-    mapper = {},
+    mapper
   }) =>
   async (req, res, next) => {
     try {
@@ -36,7 +36,7 @@ const exist =
             400,
             `${subjectForMessage} no ha sido registrado`,
             {
-              field: [reqProperty, mapper[column]],
+              field: [reqProperty, mapper[attribute]],
               value,
             }
           )

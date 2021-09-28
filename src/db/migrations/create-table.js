@@ -70,7 +70,6 @@ const createTable = async () => {
       },
     ],
   }
-
   await dynamoDB.createTable(params).promise()
 }
 

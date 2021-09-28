@@ -4,7 +4,7 @@ const profileControllers = require('../controllers/profiles')
 const profilesSchemas = require('../schemas/profiles')
 const { REQ_ATTR } = require('./constants')
 const { validate, isUnique, transformer } = require('../middlewares')
-const { ProfileMapper } = require('../middlewares/transformer/mappers')
+const { ProfileMapper } = require('../db/mappers')
 const { HASH_KEYS } = require('../db/constants')
 
 router.post(

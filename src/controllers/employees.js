@@ -1,6 +1,8 @@
 const { HASH_KEYS } = require('../db/constants')
 const EmployeeDocument = require('../db/documents/employees')
+const { EmployeeMapper } = require('../db/mappers')
 const Repository = require('../db/repository')
+const parser = require('../utils/parser')
 
 /**
  * @function create
@@ -28,7 +30,15 @@ const create = async ({ body }, res, next) => {
  */
 const getByCompany = async ({ params }, res, next) => {
   try {
-    const response = await Repository.query({ ...params, sk: HASH_KEYS.PROFILES })
+    const response = await Repository.query({
+      ...params,
+      sk: HASH_KEYS.PROFILES,
+    })
+    response.Items = parser({
+      mapperObject: EmployeeMapper,
+      sourceData: response.Items,
+      exclude: ['gsi2_pk', 'gsi3_pk'],
+    })
     res.status(200).json(response)
   } catch (error) {
     next(error)
@@ -37,5 +47,5 @@ const getByCompany = async ({ params }, res, next) => {
 
 module.exports = {
   create,
-  getByCompany
+  getByCompany,
 }
