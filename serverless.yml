@@ -1,4 +1,4 @@
-service: belieff-questionaries
+service: belieff-profiles
 
 frameworkVersion: '2'
 useDotenv: true

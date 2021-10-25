@@ -1,5 +1,6 @@
-@baseUrl = http://localhost:8080
-# @baseUrl = https://8o7u4lxree.execute-api.us-east-1.amazonaws.com/dev
+# @baseUrl = http://localhost:8080
+@baseUrl = http://localhost:3000/dev
+# @baseUrl = https://egsezzx939.execute-api.us-east-1.amazonaws.com/dev/
 
 ### GET /api/profiles
 GET {{baseUrl}}/api/profiles/profile-1-42

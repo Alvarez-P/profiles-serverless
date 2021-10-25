@@ -24,7 +24,7 @@
   },
   "scripts": {
     "lint": "standard --fix",
-    "dynamodb:create": "node ./src/db/migrations/create-table.js",    
+    "dynamodb:create": "node ./src/db/migrations/create-table.js",
     "dynamodb:delete": "node ./src/db/migrations/delete-table.js",
     "start": "nodemon ./src/server.js"
   },
