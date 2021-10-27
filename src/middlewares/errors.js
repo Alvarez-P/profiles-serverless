@@ -5,7 +5,7 @@ const handleErrors = (err, req, res, next) => {
     ? err
     : { code: 500, message: 'Internal server error' }
 
-  console.log(`${name}: ${err.message}`)
+  console.log(err)
   res.status(code).json(body)
 }
 

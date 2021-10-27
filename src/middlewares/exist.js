@@ -12,7 +12,7 @@ const exist =
     secondConditionValue = null,
     subjectForMessage = attribute,
     required,
-    mapper
+    mapper,
   }) =>
   async (req, res, next) => {
     try {
@@ -30,7 +30,7 @@ const exist =
           filters[secondConditionColumn] =
             secondConditionValue ||
             req[secondConditionReqProperty][secondConditionAttr]
-        const item = await Repository.query(filters)
+        const item = await Repository.query({ filters })
         if (!item.Count) {
           throw new HttpError(
             400,

@@ -31,8 +31,10 @@ const create = async ({ body }, res, next) => {
 const getByCompany = async ({ params }, res, next) => {
   try {
     const response = await Repository.query({
-      ...params,
-      sk: HASH_KEYS.PROFILES,
+      filters: {
+        ...params,
+        sk: HASH_KEYS.PROFILES,
+      },
     })
     response.Items = parser({
       mapperObject: EmployeeMapper,

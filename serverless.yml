@@ -7,9 +7,15 @@ provider:
   runtime: nodejs12.x
   stage: dev
 
+layers:
+  mainLayer:
+    path: layer
+
 functions:
   app:
     handler: handler.handler
+    layers:
+      - {Ref: MainLayerLambdaLayer}
     events:
       - http:
           path: /

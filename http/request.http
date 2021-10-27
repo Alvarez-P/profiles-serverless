@@ -1,9 +1,9 @@
 # @baseUrl = http://localhost:8080
-@baseUrl = http://localhost:3000/dev
-# @baseUrl = https://egsezzx939.execute-api.us-east-1.amazonaws.com/dev/
+# @baseUrl = http://localhost:3000/dev
+@baseUrl = https://egsezzx939.execute-api.us-east-1.amazonaws.com/dev/
 
 ### GET /api/profiles
-GET {{baseUrl}}/api/profiles/profile-1-42
+GET {{baseUrl}}/api/profiles/profile-d3c6299e-d457-4194-8663-1f02942900ee
 Content-Type: application/json
 
 ### POST /api/profiles

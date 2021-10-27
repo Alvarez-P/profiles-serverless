@@ -18,6 +18,7 @@ router.post(
     secondConditionColumn: 'sk',
     secondConditionValue: HASH_KEYS.PROFILES,
     required: true,
+    mapper: ProfileMapper
   }),
   isUnique({
     reqProperty: REQ_ATTR.BODY,
@@ -26,6 +27,7 @@ router.post(
     secondConditionColumn: 'sk',
     secondConditionValue: HASH_KEYS.PROFILES,
     required: true,
+    mapper: ProfileMapper
   }),
   isUnique({
     reqProperty: REQ_ATTR.BODY,
@@ -34,8 +36,13 @@ router.post(
     secondConditionColumn: 'sk',
     secondConditionValue: HASH_KEYS.PROFILES,
     required: false,
+    mapper: ProfileMapper
   }),
   profileControllers.create
 )
-
+router.get(
+  '/:pk',
+  validate(profilesSchemas.getByPk, REQ_ATTR.PARAMS),
+  profileControllers.get
+)
 module.exports = router

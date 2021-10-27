@@ -12,7 +12,7 @@ const isUnique =
     secondConditionValue = null,
     subjectForMessage = attribute,
     required,
-    mapper
+    mapper,
   }) =>
   async (req, res, next) => {
     try {
@@ -29,13 +29,18 @@ const isUnique =
         }
         if (secondConditionAttr)
           filters[secondConditionColumn] =
-            secondConditionValue || req[secondConditionReqProperty][secondConditionAttr]
-        const item = await Repository.query(filters)
+            secondConditionValue ||
+            req[secondConditionReqProperty][secondConditionAttr]
+        const item = await Repository.query({ filters })
         if (item.Count) {
-          throw new HttpError(400, `${subjectForMessage} ya ha sido registrado`, {
-            field: [reqProperty, mapper[attribute]],
-            value
-          })
+          throw new HttpError(
+            400,
+            `${subjectForMessage} ya ha sido registrado`,
+            {
+              field: [reqProperty, mapper[attribute]],
+              value,
+            }
+          )
         }
       }
       next()

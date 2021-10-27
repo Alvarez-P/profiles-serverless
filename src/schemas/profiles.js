@@ -57,6 +57,16 @@ const create = Joi.object({
   }),
 })
 
+
+const getByPk = Joi.object({
+  pk: Joi.string().required().messages({
+    'string.base': 'El identificador del perfil debe ser un texto',
+    'string.empty': 'El identificador del perfil no debe ser un texto vacío vacía',
+    'any.required': 'El identificador del perfil es un campo requerido',
+  })
+})
+
 module.exports = {
   create,
+  getByPk
 }
